@@ -1,6 +1,64 @@
 # R Programming Assignment 2
 # Requires forked git repository (ProgrammingAssignment2)
 
+
+#####################################
+# solved and commented code follows:
+
+
+# given a definition of a square matrix, such as:
+# md <- makeCacheMatrix(rbind(c(1,-1/4),c(-1/4,1)))
+# store the matrix and set up several functions for
+# getting and setting the inverse of the matrix.
+
+# returns a list of functions for operating on 
+# martices and thier inverses: 
+# 'set' and 'get' matrices, 'setinversmatrix' and 
+# 'getinversematrix' inverse matrixes 
+# (if cached via cacheSolve function below)
+
+makeCacheMatrix <- function(x = matrix()) {
+    s <- NULL
+    set <- function(y) {
+        x <<- y
+        s <<- NULL
+    }
+    get <- function() x
+    setinversematrix <- function(solve) s <<- solve
+    getinversematrix <- function() s
+    list(set = set, get = get,
+         setinversematrix = setinversematrix,
+         getinversematrix = getinversematrix)
+}
+
+
+# given an object created from 
+# a square matrix previously processed in
+# makeCacheMatrix(), solve the inverse of the matrix
+# and store it in the object for retrieval by 
+# functions 'setinversmatrix' and 
+# 'getinversematrix' defined in  'makeCacheMatrix()'
+
+cacheSolve <- function(x, ...) {
+    ## Return a matrix that is the inverse of 'x'
+    s <- x$getinversematrix()
+    if(!is.null(s)) {
+        message("getting cached data")
+        return(s)
+    }
+    data <- x$get()
+    s <- solve(data, ...)
+    x$setinversematrix(s)
+    s
+}
+
+# end solved and commented code
+#####################################
+
+
+
+
+
 #####################################
 # original code follows:
 
@@ -20,11 +78,14 @@
 #     ## Return a matrix that is the inverse of 'x'
 # }
 
+
 # end original code
 #####################################
 
-# Evaluation/feedback on the above work
-# 
+
+
+#####################################
+# notes on grading follows:
 
 
 
@@ -34,6 +95,10 @@
 # 1 point: The submitted URL points to a GitHub repository
 # 
 
+# ANSWER:
+# URL pointing to a GitHub repository:
+# https://github.com/shemp9999/ProgrammingAssignment2
+
 
 
 # Does the GitHub repository contain at least one commit beyond the original fork?
@@ -42,6 +107,9 @@
 # 1 point: Yes, there is at least one commit beyond the original fork
 # 
 
+# ANSWER:
+# URL with at least one commit:
+# https://github.com/shemp9999/ProgrammingAssignment2
 
 
 # Was a SHA-1 submitted indicating a specific commit in the GitHub repository?
@@ -50,6 +118,9 @@
 # 1 point: Yes, a SHA-1 was submitted
 # 
 
+# ANSWER:
+# SHA for initial commit:
+# 6ec24bcf1cd6985beff76291801674d0dd678479
 
 
 # If a SHA-1 was submitted along with the GitHub URL, does the SHA-1 
@@ -59,6 +130,10 @@
 # 2 points: Yes, there is a commit in the repository corresponding to that SHA-1
 #
 
+# ANSWER:
+# SHA for specific commit:
+# https://github.com/shemp9999/ProgrammingAssignment2/commit/6ec24bcf1cd6985beff76291801674d0dd678479
+# (aplogies for overly long comment length)
 
 # Overall evaluation/feedback
 # 
@@ -75,6 +150,15 @@
 # 2 points: The R file contains code implementing the complete assignment
 # 
 
+# ANSWER (uncommented and full of code):
+# TO-DO - code the functions
+# makeCacheMatrix <- function(x = matrix()) {
+#     
+# }
+# cacheSolve <- function(x, ...) {
+#     ## Return a matrix that is the inverse of 'x'
+# }
+
 
 
 # Does the R file containing the code have any comments explaining what the code does?
@@ -88,7 +172,22 @@
 # 2 points: Both functions have corresponding explanatory comments in the R file
 # 
 
+# ANSWER (uncommented and full of code):
+# TO-DO - code the functions and improve the comments
 
+# # This is the First function to edit. The comments will be glorious
+# makeCacheMatrix <- function(x = matrix()) {
+#     
+# }
+# 
+# 
+# # This is the Second function to edit. The comments will also be glorious
+# cacheSolve <- function(x, ...) {
+#     ## Return a matrix that is the inverse of 'x'
+# }
+
+
+# https://github.com/shemp9999/ProgrammingAssignment2/blob/master/cachematrix.R
 
 # Does the R code implementing the 'makeCacheMatrix' function appear to be correct, 
 # to the best of your ability to judge?
@@ -119,6 +218,9 @@
 # 2 points: The solution appears to be correct and is written in a well-formatted and 
 #           easily readable style
 # 
+
+# end notes on grading
+#####################################
 
 
 
