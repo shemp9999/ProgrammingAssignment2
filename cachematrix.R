@@ -2,8 +2,7 @@
 # Requires forked git repository (ProgrammingAssignment2)
 
 
-#####################################
-# solved and commented code follows:
+
 
 
 # given a definition of a square matrix, such as:
@@ -37,6 +36,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
+
+
 # given an object created from a square
 # matrix previously processed in
 # makeCacheMatrix(), solve the inverse of the matrix:
@@ -58,21 +59,3 @@ cacheSolve <- function(x, ...) {
     x$setinversematrix(s)
     s
 }
-
-# end solved and commented code
-#####################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
