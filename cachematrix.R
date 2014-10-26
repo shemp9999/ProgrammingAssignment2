@@ -5,16 +5,16 @@
 
 
 
-# given a definition of a square matrix, such as:
+# given a square matrix, return an object:
 # md <- makeCacheMatrix(rbind(c(1,-1/4),c(-1/4,1)))
 
-# store the matrix and set up several functions for
-# working with it.
+# creates the matrix and sets up several functions
+# for working with it.
 
 # returns a list of functions for operating on 
 # matrices and their inverses: 
 # 'set' and 'get' matrices, and 
-# 'setinversematrix' and 'getinversematrix' inverse matrixes 
+# 'setinversematrix' and 'getinversematrix' inverse matrices 
 #   (if cached via cacheSolve function below)
 #   md$get()
 #   md$set(a_matrix)
